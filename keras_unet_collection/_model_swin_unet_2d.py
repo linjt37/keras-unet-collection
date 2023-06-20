@@ -90,9 +90,10 @@ def swin_unet_2d_base(input_tensor, filter_num_begin, depth, stack_num_down, sta
     '''
     # Compute number be patches to be embeded
     input_size = input_tensor.shape.as_list()[1:]
+    print(input_size)
     num_patch_x = input_size[0]//patch_size[0]
     num_patch_y = input_size[1]//patch_size[1]
-    
+    print(num_patch_x,num_patch_y)
     # Number of Embedded dimensions
     embed_dim = filter_num_begin
     
@@ -174,7 +175,7 @@ def swin_unet_2d_base(input_tensor, filter_num_begin, depth, stack_num_down, sta
     # !!! <--- "patch_size[0]" is used; it assumes patch_size = (size, size)
     X = patch_expanding(num_patch=(num_patch_x, num_patch_y),
                         embed_dim=embed_dim, upsample_rate=patch_size[0], return_vector=False)(X)
-    
+    print(X.shape)
     return X
 
 
