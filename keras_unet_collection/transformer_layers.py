@@ -38,7 +38,7 @@ class patch_extract(Layer):
         super(patch_extract, self).__init__(**kwargs)
         self.patch_size = patch_size
         self.patch_size_x = patch_size[0]
-        self.patch_size_y = patch_size[0]
+        self.patch_size_y = patch_size[1]
     
     def call(self, images):
         
